@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 
 const blogRouter = require("./routes/blog.js");
 
@@ -32,6 +33,7 @@ const store = new MongoDBSession({
   collection: "sessions",
 });
 
+app.use(express.static("views"));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -57,7 +59,7 @@ const isAuth = (req, res, next) => {
 
 app.get("/", async (req, res) => {
   const blogs = await BlogModel.find({});
-  res.json(blogs);
+  res.render(path.join(__dirname, "views", "index.ejs"), { blogs });
 });
 
 app.post("/login", async (req, res) => {
@@ -107,6 +109,12 @@ app.post("/logout", (req, res) => {
     if (err) throw err;
   });
   res.redirect("/");
+});
+
+app.listen(5000, () => {
+  {
+    console.log("server is running on port 5000");
+  }
 });
 
 module.exports = app;
