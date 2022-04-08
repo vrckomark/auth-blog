@@ -63,8 +63,9 @@ const isAuth = (req, res, next) => {
 };
 
 app.get("/", async (req, res) => {
+  const session = req.session;
   const blogs = await BlogModel.find({});
-  res.render(path.join(__dirname, "views", "index.ejs"), { blogs });
+  res.render(path.join(__dirname, "views", "index.ejs"), { blogs, session });
 });
 
 app.get("/dashboard", isAuth, (req, res) => {
@@ -78,10 +79,10 @@ app.post("/logout", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(5000, () => {
-  {
-    console.log("server is running on port 5000");
-  }
-});
+// app.listen(5000, () => {
+//   {
+//     console.log("server is running on port 5000");
+//   }
+// });
 
 module.exports = app;

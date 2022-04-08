@@ -440,19 +440,33 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
 .mt-4 {
   margin-top: 1rem;
 }
 .ml-10 {
   margin-left: 2.5rem;
 }
+.mr-10 {
+  margin-right: 2.5rem;
+}
 .flex {
   display: flex;
+}
+.hidden {
+  display: none;
 }
 .h-max {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+}
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .w-screen {
   width: 100vw;
@@ -463,8 +477,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex-row {
   flex-direction: row;
 }
+.items-center {
+  align-items: center;
+}
 .justify-end {
   justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
 }
 .justify-between {
   justify-content: space-between;
@@ -482,6 +502,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .text-purple-500 {
   --tw-text-opacity: 1;

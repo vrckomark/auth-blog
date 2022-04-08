@@ -13,6 +13,17 @@
       class="text-3xl bottom-0 right-0 p-10 fixed text-purple-500"
       >Create a blog</a
     >
-    <%- include("navbar") %>
+    <%- include("navbar", { session }) %>
+    <div class="p-10 min-w-screen justify-center items-center">
+      <% blogs.map((blog)=>{ %>
+      <div class="mb-5 w-max">
+        <a href="/blog/<%= blog.id %> " class="text-3xl text-purple-500"
+          ><%= blog.title %></a
+        >
+        <p class="text-xl text-purple-500"><%= blog.content %></p>
+      </div>
+
+      <% }) %>
+    </div>
   </body>
 </html>

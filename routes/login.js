@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route("/")
   .get((req, res) => {
-    res.render("../views/login.ejs");
+    res.render("../views/login.ejs", { session: req.session });
   })
   .post(async (req, res) => {
     const { email, password } = req.body;
@@ -21,6 +21,8 @@ router
 
     req.session.isAuth = true;
     req.session.username = user.username;
+    req.session.userId = user._id;
+    req.session.email = user.email;
     res.redirect("/");
   });
 

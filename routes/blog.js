@@ -6,7 +6,8 @@ let router = express.Router();
 router
   .route("/create")
   .post(async (req, res) => {
-    const { title, content, date, author } = req.body;
+    const { title, content, author } = req.body;
+    const date = new Date();
     blog = new BlogModel({
       title,
       content,
@@ -14,10 +15,16 @@ router
       author,
     });
     await blog.save();
-    res.send("Added blog!");
+    res.redirect("/");
   })
   .get((req, res) => {
-    res.render("create");
+    const session = req.session;
+    res.render("create", { session });
   });
+
+router.get("/:id", async (req, res) => {
+  const blog = await BlogModel.findById(req.params.id);
+  res.render("../views/blog", { blog });
+});
 
 module.exports = router;
