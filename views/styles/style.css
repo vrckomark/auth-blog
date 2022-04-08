@@ -424,11 +424,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.fixed {
+  position: fixed;
+}
+.bottom-0 {
+  bottom: 0px;
+}
+.right-0 {
+  right: 0px;
+}
 .float-right {
   float: right;
 }
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
 .mt-4 {
   margin-top: 1rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
 }
 .flex {
   display: flex;
@@ -441,8 +457,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-screen {
   width: 100vw;
 }
+.w-1\/2 {
+  width: 50%;
+}
 .flex-row {
   flex-direction: row;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .justify-evenly {
   justify-content: space-evenly;
@@ -450,6 +475,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+.p-10 {
+  padding: 2.5rem;
 }
 .text-3xl {
   font-size: 1.875rem;

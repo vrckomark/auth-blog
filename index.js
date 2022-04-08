@@ -6,6 +6,8 @@ const cors = require("cors");
 const path = require("path");
 
 const blogRouter = require("./routes/blog.js");
+const loginRouter = require("./routes/login.js");
+const registerRouter = require("./routes/register.js");
 
 const MongoDBSession = require("connect-mongodb-session")(session);
 const UserModel = require("./models/user");
@@ -45,7 +47,10 @@ app.use(
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use("/blog", blogRouter);
+app.use("/login", loginRouter);
+app.use("/register", registerRouter);
 
 app.set("view engine", "ejs");
 
@@ -60,44 +65,6 @@ const isAuth = (req, res, next) => {
 app.get("/", async (req, res) => {
   const blogs = await BlogModel.find({});
   res.render(path.join(__dirname, "views", "index.ejs"), { blogs });
-});
-
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await UserModel.findOne({ email });
-  if (!user) {
-    return res.redirect("/register");
-  }
-  if (!bcrypt.compare(password, user.password)) {
-    return res.redirect("/login");
-  }
-
-  req.session.isAuth = true;
-  req.session.username = user.username;
-});
-
-app.get("/register", (req, res) => {
-  res.send("this is register");
-});
-
-app.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
-
-  let user = await UserModel.findOne({ email });
-  if (user) {
-    return res.redirect("/register");
-  }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  user = new UserModel({
-    username,
-    email,
-    password: hashedPassword,
-  });
-
-  await user.save();
-  res.redirect("/login");
 });
 
 app.get("/dashboard", isAuth, (req, res) => {
