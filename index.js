@@ -35,7 +35,7 @@ const store = new MongoDBSession({
   collection: "sessions",
 });
 
-app.use(express.static("views"));
+app.use(express.static("./views"));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

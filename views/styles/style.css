@@ -427,6 +427,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fixed {
   position: fixed;
 }
+.bottom-10 {
+  bottom: 2.5rem;
+}
+.right-10 {
+  right: 2.5rem;
+}
 .bottom-0 {
   bottom: 0px;
 }
@@ -436,6 +442,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .float-right {
   float: right;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -444,8 +458,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
-.mb-5 {
-  margin-bottom: 1.25rem;
+.mt-12 {
+  margin-top: 3rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
 }
 .ml-10 {
   margin-left: 2.5rem;
@@ -464,17 +490,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: -moz-max-content;
   height: max-content;
 }
-.w-screen {
-  width: 100vw;
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .w-1\/2 {
   width: 50%;
+}
+.w-screen {
+  width: 100vw;
+}
+.w-full {
+  width: 100%;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .flex-row {
   flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
+}
+.content-center {
+  align-content: center;
 }
 .items-center {
   align-items: center;
@@ -491,15 +531,53 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-evenly {
   justify-content: space-evenly;
 }
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
+}
+.border-2 {
+  border-width: 2px;
+}
+.border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity));
+}
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.bg-purple-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
+.p-2 {
+  padding: 0.5rem;
+}
 .p-10 {
   padding: 2.5rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
 .pr-5 {
   padding-right: 1.25rem;
+}
+.text-left {
+  text-align: left;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -512,4 +590,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-purple-500 {
   --tw-text-opacity: 1;
   color: rgb(168 85 247 / var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
