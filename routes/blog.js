@@ -12,7 +12,7 @@ router
     const { title, content, author } = req.body;
     const date = new Date();
     const formattedDate =
-      date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     blog = new BlogModel({
       title,
       content,

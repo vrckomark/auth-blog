@@ -68,8 +68,38 @@ app.get("/", async (req, res) => {
   res.render(path.join(__dirname, "views", "index.ejs"), { blogs, session });
 });
 
-app.get("/dashboard", isAuth, (req, res) => {
-  res.send("this is /dashboard");
+app.get("/deleteUsers", (req, res) => {
+  if (req.session.username === "admin") {
+    UserModel.deleteMany({ username: { $ne: "admin" } }, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Users deleted.");
+      }
+    });
+  }
+  res.redirect("/");
+});
+
+app.get("/deleteBlogs", (req, res) => {
+  if (req.session.username === "admin") {
+    BlogModel.deleteMany({}, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Blogs deleted.");
+      }
+    });
+  }
+  res.redirect("/");
+});
+
+app.get("/dashboard", isAuth, async (req, res) => {
+  const users = await UserModel.find({});
+  res.render(path.join(__dirname, "views", "dashboard.ejs"), {
+    session: req.session,
+    users,
+  });
 });
 
 app.post("/logout", (req, res) => {
@@ -79,10 +109,10 @@ app.post("/logout", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(5000, () => {
-  {
-    console.log("server is running on port 5000");
-  }
-});
+// app.listen(5000, () => {
+//   {
+//     console.log("server is running on port 5000");
+//   }
+// });
 
 module.exports = app;
