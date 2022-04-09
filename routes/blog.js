@@ -8,10 +8,12 @@ router
   .post(async (req, res) => {
     const { title, content, author } = req.body;
     const date = new Date();
+    const formattedDate =
+      date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear();
     blog = new BlogModel({
       title,
       content,
-      date,
+      date: formattedDate,
       author,
     });
     await blog.save();
@@ -24,7 +26,7 @@ router
 
 router.get("/:id", async (req, res) => {
   const blog = await BlogModel.findById(req.params.id);
-  res.render("../views/blog", { blog });
+  res.render("../views/blog", { blog, session: req.session });
 });
 
 module.exports = router;

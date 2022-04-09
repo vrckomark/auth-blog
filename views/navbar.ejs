@@ -5,15 +5,15 @@
   ></script>
   <style>
     .fa-arrow-right-from-bracket {
-      color: blueviolet;
+      color: #f24a4a;
     }
   </style>
 </head>
-<nav class="w-screen h-max flex flex-row justify-evenly mt-4">
+<nav class="w-screen h-max flex flex-row justify-evenly my-4">
   <div class="flex w-1/2 justify-between">
     <a href="/" class="text-3xl ml-10 text-purple-500">Home</a>
   </div>
-  <div class="flex w-1/2 justify-end">
+  <div class="flex w-1/2 justify-end items-center pr-5">
     <% if(session.isAuth){ %>
     <div class="text-purple-500 text-3xl mr-10">
       Hello <%= session.username %>

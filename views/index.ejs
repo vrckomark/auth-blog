@@ -8,19 +8,28 @@
     <title>Blogs</title>
   </head>
   <body class="bg-gray-800">
+    <% if(session.isAuth){ %>
     <a
       href="/blog/create"
       class="text-3xl bottom-0 right-0 p-10 fixed text-purple-500"
       >Create a blog</a
     >
-    <%- include("navbar", { session }) %>
-    <div class="p-10 min-w-screen justify-center items-center">
+    <% } else {%>
+    <a
+      href="/register"
+      class="text-3xl bottom-0 right-0 p-10 fixed text-purple-500"
+    >
+      Sign up to create a blog
+    </a>
+    <% } %> <%- include("navbar", { session }) %>
+    <div class="p-10 flex flex-col w-screen justify-center items-center">
       <% blogs.map((blog)=>{ %>
-      <div class="mb-5 w-max">
-        <a href="/blog/<%= blog.id %> " class="text-3xl text-purple-500"
+      <div class="mb-5 w-1/2">
+        <div class="text-xl text-purple-500"><%= blog.date %></div>
+        <a href="/blog/<%= blog.id %> " class="text-3xl my-4 text-purple-500"
           ><%= blog.title %></a
         >
-        <p class="text-xl text-purple-500"><%= blog.content %></p>
+        <div class="text-xl text-purple-500 w-1/2"><%= blog.content %></div>
       </div>
 
       <% }) %>

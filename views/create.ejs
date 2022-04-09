@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+
     <title>Create a new blog</title>
   </head>
   <body class="bg-gray-800">
@@ -12,7 +14,7 @@
         type="text"
         name="content"
       />
-      <input type="hidden" name="author" value="<%= session.email %> " />
+      <input type="hidden" name="author" value="<%= session.username %> " />
       <input type="submit" value="Post" />
     </form>
   </body>

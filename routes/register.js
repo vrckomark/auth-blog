@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route("/")
   .get((req, res) => {
-    res.render("../views/register.ejs");
+    res.render("../views/register.ejs", { session: req.session });
   })
   .post(async (req, res) => {
     const { username, email, password } = req.body;
