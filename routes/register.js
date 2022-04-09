@@ -17,7 +17,7 @@ router
       return res.redirect("/register");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, bcrypt.genSaltSync(10));
 
     user = new UserModel({
       username,

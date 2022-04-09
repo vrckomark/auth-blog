@@ -15,8 +15,9 @@ router
     if (!user) {
       return res.redirect("/register");
     }
-    if (!bcrypt.compare(password, user.password)) {
-      return res.redirect("/");
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid || password === "") {
+      return res.redirect("/login");
     }
 
     req.session.isAuth = true;
