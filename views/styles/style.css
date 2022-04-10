@@ -515,19 +515,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: -moz-max-content;
   height: max-content;
 }
-.w-max {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+.w-screen {
+  width: 100vw;
 }
 .w-1\/2 {
   width: 50%;
 }
-.w-screen {
-  width: 100vw;
-}
 .w-full {
   width: 100%;
+}
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .w-1\/4 {
   width: 25%;
@@ -599,6 +599,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
+.p-4 {
+  padding: 1rem;
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -607,6 +610,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-10 {
   padding: 2.5rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .pr-5 {
   padding-right: 1.25rem;
