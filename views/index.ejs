@@ -41,7 +41,13 @@
       >
         <div class="flex flex-col">
           <div class="text-xl text-gray-200"><%= blog.author %></div>
-          <div class="text-xl text-gray-600"><%= blog.date %></div>
+          <div class="text-xl text-gray-600">
+            <% date = new Date(blog.date) %> <%= date.getDate() %>/<%=
+            date.getMonth()+1 %>/<%= date.getFullYear() %> | <%=
+            date.getUTCHours()-(date.getTimezoneOffset()/60) %>:<%
+            if(date.getMinutes()<10){ %>0<%= date.getMinutes() %><% } else {
+            %><%= date.getMinutes() %><% } %>
+          </div>
         </div>
         <a href="/blog/<%= blog.id %> " class="text-3xl my-2 text-purple-500"
           ><%= blog.title %></a

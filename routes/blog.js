@@ -11,12 +11,10 @@ router
   .post(async (req, res) => {
     const { title, content, author } = req.body;
     const date = new Date();
-    const formattedDate =
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     blog = new BlogModel({
       title,
       content,
-      date: formattedDate,
+      date,
       author,
     });
     await blog.save();
