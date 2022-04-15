@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/3200730e91.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>About</title>
+  </head>
+  <body class="bg-gray-800">
+    <%- include("navbar", session ) %>
+    <div class="w-screen mt-12 flex flex-col items-center content-center">
+      <div
+        class="text-gray-300 rounded-xl p-6 border-2 border-purple-500 w-1/2 text-left text-2xl"
+      >
+        This website was created by
+        <a href="https://github.com/vrckomark">Mark Vrčko</a> in ExpressJS with
+        EJS and MongoDB database.
+      </div>
+      <div class="text-gray-300 rounded-xl mt-8 w-1/2 text-left text-2xl">
+        <a
+          target="_blank"
+          class="flex items-center"
+          href="https://github.com/vrckomark/auth-blog"
+        >
+          <i class="fa-brands fa-2x fa-github"></i>
+          <div class="ml-4 text-gray-300 underline">Github Repository</div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

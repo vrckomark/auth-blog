@@ -12,8 +12,11 @@
 <nav class="w-screen h-max flex flex-row justify-between my-8">
   <div class="flex items-start justify-start content-center ml-12">
     <div class="flex">
-    <a href="/" class="text-3xl text-purple-500">Home</a>
-  </div>
+      <a href="/" class="text-3xl text-purple-500">Home</a>
+    </div>
+    <div class="flex">
+      <a href="/about" class="text-3xl text-purple-500 ml-5">About</a>
+    </div>
   <% if(session.username==="admin"){ %> 
     <div class="flex">
       <a href="/dashboard" class="text-3xl text-purple-500 ml-5">Dashboard</a>

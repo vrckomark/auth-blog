@@ -68,6 +68,12 @@ app.get("/", async (req, res) => {
   res.render(path.join(__dirname, "views", "index.ejs"), { blogs, session });
 });
 
+app.get("/about", (req, res) => {
+  res.render(path.join(__dirname, "views", "about.ejs"), {
+    session: req.session,
+  });
+});
+
 app.get("/deleteUsers", (req, res) => {
   if (req.session.username === "admin") {
     UserModel.deleteMany({ username: { $ne: "admin" } }, (err) => {
