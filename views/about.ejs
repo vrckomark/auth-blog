@@ -9,17 +9,27 @@
       src="https://kit.fontawesome.com/3200730e91.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .fa-github {
+        color: #e12353;
+      }
+    </style>
     <title>About</title>
   </head>
-  <body class="bg-gray-800">
+  <body class="bg-background">
     <%- include("navbar", session ) %>
     <div class="w-screen mt-12 flex flex-col items-center content-center">
       <div
-        class="text-gray-300 rounded-xl p-6 border-2 border-purple-500 w-1/2 text-left text-2xl"
+        class="text-gray-300 rounded-xl p-6 border-2 border-secondary w-1/2 text-left text-2xl"
       >
         This website was created by
-        <a href="https://github.com/vrckomark">Mark Vrčko</a> in ExpressJS with
-        EJS and MongoDB database.
+        <a
+          class="text-primary underline"
+          href="https://github.com/vrckomark"
+          target="_blank"
+          >Mark Vrčko</a
+        >
+        in ExpressJS with EJS and a MongoDB database.
       </div>
       <div class="text-gray-300 rounded-xl mt-8 w-1/2 text-left text-2xl">
         <a

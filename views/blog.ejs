@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <title>Blog</title>
   </head>
-  <body class="bg-gray-800">
+  <body class="bg-background">
     <%- include("navbar", session) %>
     <div class="w-screen mt-12 flex flex-col items-center content-center">
       <div
-        class="text-purple-500 justify-center w-1/2 py-4 border-2 border-purple-500 rounded-xl mb-10 flex text-4xl"
+        class="text-primary justify-center w-1/2 py-4 border-2 border-primary rounded-xl mb-10 flex text-4xl"
       >
         <%= blog.title %>
       </div>
       <div
-        class="text-purple-500 rounded-xl p-4 border-2 border-purple-500 flex w-1/2 text-left text-2xl"
+        class="text-primary rounded-xl p-4 border-2 border-primary flex w-1/2 text-left text-2xl"
       >
         <%= blog.content %>
       </div>

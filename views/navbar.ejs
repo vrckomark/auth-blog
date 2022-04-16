@@ -9,24 +9,24 @@
     }
   </style>
 </head>
-<nav class="w-screen h-max flex flex-row justify-between my-8">
+<nav class="w-screen h-max flex flex-row justify-between my-8 border-b-2 border-slate-500 pb-6 rounded-2xl">
   <div class="flex items-start justify-start content-center ml-12">
     <div class="flex">
-      <a href="/" class="text-3xl text-purple-500">Home</a>
+      <a href="/" class="text-3xl text-secondary">Home</a>
     </div>
     <div class="flex">
-      <a href="/about" class="text-3xl text-purple-500 ml-5">About</a>
+      <a href="/about" class="text-3xl text-secondary ml-5">About</a>
     </div>
   <% if(session.username==="admin"){ %> 
     <div class="flex">
-      <a href="/dashboard" class="text-3xl text-purple-500 ml-5">Dashboard</a>
+      <a href="/dashboard" class="text-3xl text-secondary ml-5">Dashboard</a>
     </div>
     <% } %> 
   </div>
   
   <div class="flex justify-end items-center pr-5">
     <% if(session.isAuth){ %>
-    <div class="text-purple-500 text-3xl mr-6">
+    <div class="text-secondary text-3xl mr-6">
       Hello <%= session.username %>
     </div>
     <form action="/logout" method="POST" class="mr-8">
@@ -37,8 +37,8 @@
     </form>
 
     <% } else{%>
-    <a href="/login" class="text-3xl float-right text-purple-500">Login</a>
-    <a href="/register" class="text-3xl float-right text-purple-500 mx-10"
+    <a href="/login" class="text-3xl float-right text-secondary">Login</a>
+    <a href="/register" class="text-3xl float-right text-secondary mx-10"
       >Register</a
     >
     <% } %>
