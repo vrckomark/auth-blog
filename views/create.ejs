@@ -17,7 +17,7 @@
     >
       <label
         for="title"
-        class="my-5 text-2xl text-primary w-full flex flex-col items-center"
+        class="my-5 text-2xl text-secondary w-full flex flex-col items-center"
         >Title</label
       >
       <input
@@ -25,12 +25,12 @@
         required
         name="title"
         id="title"
-        class="w-1/2 p-2 text-white text-2xl rounded-xl border-2 mb-10 bg-gray-900 border-primary"
+        class="w-1/2 p-2 text-white text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
       />
       <label
         for="content"
         required
-        class="text-2xl text-primary mb-4 w-full flex flex-col items-center"
+        class="text-2xl text-secondary mb-4 w-full flex flex-col items-center"
       >
         Content</label
       >
@@ -40,7 +40,7 @@
         id="content"
         cols="30"
         rows="10"
-        class="w-1/2 p-2 rounded-xl text-2xl text-white border-2 border-primary bg-gray-900"
+        class="w-1/2 p-2 rounded-xl text-2xl text-white border-2 border-primary bg-slate-900"
       ></textarea>
       <input type="hidden" name="author" value="<%= session.username %> " />
       <!--submit button-->

@@ -11,12 +11,24 @@
     <%- include("navbar", session) %>
     <div class="w-screen mt-12 flex flex-col items-center content-center">
       <div
-        class="text-primary justify-center w-1/2 py-4 border-2 border-primary rounded-xl mb-10 flex text-4xl"
+        class="text-primary justify-center w-1/2 py-4 rounded-xl mb-10 flex text-4xl"
       >
         <%= blog.title %>
       </div>
       <div
-        class="text-primary rounded-xl p-4 border-2 border-primary flex w-1/2 text-left text-2xl"
+        class="text-gray-500 rounded-xl p-2 justify-between flex w-1/2 text-left text-xl"
+      >
+        <div>
+          <% date = new Date(blog.date) %>Posted on <%= date.getDate() %>/<%=
+          date.getMonth()+1 %>/<%= date.getFullYear() %> at <%=
+          date.getUTCHours()-(date.getTimezoneOffset()/60) %>:<%
+          if(date.getMinutes()<10){ %>0<%= date.getMinutes() %><% } else { %><%=
+          date.getMinutes() %><% } %>
+        </div>
+        <div class="text-primary text-2xl"><%= blog.author %></div>
+      </div>
+      <div
+        class="text-secondary rounded-xl p-4 border-2 border-primary flex w-1/2 text-left text-2xl"
       >
         <%= blog.content %>
       </div>
