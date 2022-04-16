@@ -13,7 +13,7 @@
     ></script>
     <style>
       .fa-circle-plus {
-        color: #7bc265;
+        color: #e12353;
       }
     </style>
     <title>Blogs</title>
@@ -46,10 +46,8 @@
             <a href="/delete/<%= blog._id %>" class="text-sm text-red-500"
               >Delete</a
             >
-
             <% } %>
           </div>
-
           <div class="text-xl text-gray-600">
             <% date = new Date(blog.date) %> <%= date.getDate() %>/<%=
             date.getMonth()+1 %>/<%= date.getFullYear() %> | <%=
