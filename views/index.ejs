@@ -16,7 +16,7 @@
     </style>
     <title>Blogs</title>
   </head>
-  <body class="bg-background">
+  <body class="bg-background overflow-hidden">
     <% if(session.isAuth){ %>
     <a
       href="/blog/create"
@@ -48,7 +48,10 @@
           </div>
         </div>
         <div class="text-3xl my-2 text-primary"><%= blog.title %></div>
-        <div class="text-xl text-gray-400 w-1/2 my-2"><%= blog.content %></div>
+        <div class="text-xl text-gray-400 w-2/3 my-2">
+          <%= blog.content.substring(0, 100) %><% if((blog.content).length>100){
+          %>...<%}%>
+        </div>
       </a>
 
       <% }) %>
