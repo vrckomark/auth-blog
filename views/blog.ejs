@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/scrollbar.css" />
+
     <title>Blog</title>
   </head>
-  <body class="bg-background">
+  <body class="bg-background overflow-x-hidden">
     <%- include("navbar", session) %>
     <div class="w-screen mt-12 flex flex-col items-center content-center">
       <div
@@ -28,7 +30,7 @@
         <div class="text-primary text-2xl"><%= blog.author %></div>
       </div>
       <div
-        class="text-secondary rounded-xl p-4 border-2 border-primary flex w-1/2 text-left text-2xl"
+        class="text-secondary rounded-xl px-10 py-6 border-2 border-primary flex w-1/2 text-left text-2xl break-all leading-relaxed"
       >
         <%= blog.content %>
       </div>

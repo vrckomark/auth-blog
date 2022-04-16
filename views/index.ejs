@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/scrollbar.css" />
+
     <script
       src="https://kit.fontawesome.com/3200730e91.js"
       crossorigin="anonymous"
@@ -16,7 +18,7 @@
     </style>
     <title>Blogs</title>
   </head>
-  <body class="bg-background overflow-x-hidden">
+  <body class="bg-background overflow-x-hidden scrollbar">
     <% if(session.isAuth){ %>
     <a
       href="/blog/create"
@@ -33,12 +35,21 @@
     <% } %> <%- include("navbar", { session }) %>
     <div class="p-10 flex flex-col w-screen justify-center items-center">
       <% blogs.map((blog)=>{ %>
-      <a
-        href="/blog/<%= blog._id %>"
+      <div
         class="mb-8 w-1/2 flex flex-col border-2 border-secondary rounded-2xl p-5"
       >
         <div class="flex flex-col">
-          <div class="text-xl text-secondary"><%= blog.author %></div>
+          <div class="flex w-full justify-between">
+            <div class="text-xl text-secondary"><%= blog.author %></div>
+            <% if(session.username==="admin"){ %>
+
+            <a href="/delete/<%= blog._id %>" class="text-sm text-red-500"
+              >Delete</a
+            >
+
+            <% } %>
+          </div>
+
           <div class="text-xl text-gray-600">
             <% date = new Date(blog.date) %> <%= date.getDate() %>/<%=
             date.getMonth()+1 %>/<%= date.getFullYear() %> | <%=
@@ -47,12 +58,14 @@
             %><%= date.getMinutes() %><% } %>
           </div>
         </div>
-        <div class="text-3xl my-2 text-primary"><%= blog.title %></div>
-        <div class="text-xl text-gray-400 w-2/3 my-2">
-          <%= blog.content.substring(0, 100) %><% if((blog.content).length>100){
-          %>...<%}%>
-        </div>
-      </a>
+        <a href="/blog/<%= blog._id %>">
+          <div class="text-3xl my-2 text-primary"><%= blog.title %></div>
+          <div class="text-xl text-gray-400 w-2/3 my-2 break-words">
+            <%= blog.content.substring(0, 100) %><%
+            if((blog.content).length>100){ %>...<%}%>
+          </div>
+        </a>
+      </div>
 
       <% }) %>
     </div>

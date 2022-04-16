@@ -87,6 +87,17 @@ app.get("/deleteUsers", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/delete/:id", (req, res) => {
+  if (req.session.username === "admin") {
+    BlogModel.deleteOne({ _id: req.params.id }, (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+  res.redirect("/");
+});
+
 app.get("/deleteBlogs", (req, res) => {
   if (req.session.username === "admin") {
     BlogModel.deleteMany({}, (err) => {
