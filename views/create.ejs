@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
 
     <title>Create a new blog</title>
   </head>
@@ -42,8 +43,7 @@
         rows="10"
         class="w-1/2 p-2 rounded-xl text-2xl text-white border-2 border-primary bg-slate-900"
       ></textarea>
-      <input type="hidden" name="author" value="<%= session.username %> " />
-      <!--submit button-->
+      <input type="hidden" name="author" value="<%= session.username %>" />
       <input
         type="submit"
         value="Create"

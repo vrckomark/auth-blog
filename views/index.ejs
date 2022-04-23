@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/scrollbar.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
 
     <script
       src="https://kit.fontawesome.com/3200730e91.js"
@@ -43,7 +44,7 @@
             <div class="text-xl text-secondary"><%= blog.author %></div>
             <% if(session.username==="admin"){ %>
 
-            <a href="/delete/<%= blog._id %>" class="text-sm text-red-500"
+            <a href="/blog/delete/<%= blog._id %>" class="text-sm text-red-500"
               >Delete</a
             >
             <% } %>

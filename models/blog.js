@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema({
+  content: String,
+  author: String,
+  date: String,
+  isOP: Boolean,
+});
+
 const blogSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -16,6 +23,10 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true,
     sparse: true,
+  },
+  comments: {
+    type: [commentSchema],
+    default: [],
   },
 });
 

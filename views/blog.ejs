@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/scrollbar.css" />
-
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
+    <script
+    src="https://kit.fontawesome.com/3200730e91.js"
+    crossorigin="anonymous"
+  ></script>
     <title>Blog</title>
+    <style>
+      .fa-circle-plus{
+        color: #e12353
+      }
+    </style>
   </head>
   <body class="bg-background overflow-x-hidden">
     <%- include("navbar", session) %>
@@ -34,6 +43,78 @@
       >
         <%= blog.content %>
       </div>
+
+      
+      <div class="p-10 flex flex-col w-screen justify-center items-center">
+      <% blog.comments.map((comment)=>{ %>
+        <div class="mb-8 w-1/2 flex flex-col border-2 border-secondary rounded-2xl p-5">
+        <div class="flex flex-col">
+          <div class="flex w-full justify-between">
+            <div class="flex items-center justify-center">
+              <div class="text-xl text-secondary"><%= comment.author %></div>
+            <% if(comment.isOP){ %>
+              <i class="fa-solid fa-crown ml-2 text-primary"></i>
+              
+            <% } %>
+            <% if(comment.author=="admin"){ %>
+                <i class="fa-solid fa-exclamation ml-2 text-primary"></i>
+                <% } %>
+            </div>
+            
+            <% if(session.username==="admin"){ %>
+            <a href="/blog/delete/<%= blog._id %>/<%= comment._id%>" class="text-sm text-red-500"
+              >Delete</a
+            >
+            <% } %>
+          </div>
+          <div class="text-xl text-gray-600">
+            <% date = new Date(blog.date) %> <%= date.getDate() %>/<%=
+            date.getMonth()+1 %>/<%= date.getFullYear() %> | <%=
+            date.getUTCHours()-(date.getTimezoneOffset()/60) %>:<%
+            if(date.getMinutes()<10){ %>0<%= date.getMinutes() %><% } else {
+            %><%= date.getMinutes() %><% } %>
+          </div>
+        </div>
+        <div class="text-secondary text-xl break-all">
+          <%= comment.content %>
+      </div>
     </div>
+      <% }) %>
+    
+    </div>
+    <% if(session.isAuth){ %>
+      <form
+      action="/blog/<%= blog._id %>"
+      method="POST"
+      class="flex flex-col items-center w-screen"
+    >
+    <input type="hidden" name="author" value="<%= session.username %>" />
+    <input type="hidden" name="isOP" value="<% if(session.username==blog.author){ %>true<% } else{ %>false<% } %>" />
+
+      <div class="flex w-1/2 items-center justify-center">
+        <textarea
+        name="content"
+        placeholder="Write your comment here"
+        required
+        id="content"
+        cols="30"
+        rows="2"
+        class="w-full p-4 rounded-xl text-2xl text-white border-2 border-primary bg-slate-900"
+      ></textarea>
+      <input
+        type="submit"
+        value="Comment"
+        class="p-2 cursor-pointer rounded-xl ml-6 border-2 text-2xl text-white border-primary bg-primary"
+      />
+      </div>
+    </form>
+    <% } else{%>
+    <div class="flex flex-col items-center w-screen">
+      <div class="text-secondary text-xl">
+        You must be logged in to comment
+      </div>
+      <a href="/login" class="text-primary text-xl">Login</a>
+    <% } %>
+    
   </body>
 </html>
