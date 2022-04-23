@@ -43,7 +43,38 @@
       >
         <%= blog.content %>
       </div>
+      <% if(session.isAuth){ %>
+      <form
+      action="/blog/<%= blog._id %>"
+      method="POST"
+      class="flex flex-col items-center w-screen my-6"
+    >
+    <input type="hidden" name="author" value="<%= session.username %>" />
+    <input type="hidden" name="isOP" value="<% if(session.username==blog.author){ %>true<% } else{ %>false<% } %>" />
 
+      <div class="flex w-1/2 items-center justify-center">
+        <input
+        name="content"
+        placeholder="Write your comment here"
+        required
+        id="content"
+        class="outline-none w-full p-4 text-2xl text-white border-b-2 border-primary bg-background focus:outline-none focus:border-b-4"
+      ></input>
+      <input
+        type="submit"
+        value="Comment"
+        class="p-2 cursor-pointer rounded-xl ml-6 border-2 text-2xl text-white border-primary bg-primary"
+      />
+      </div>
+    </form>
+    <% } else{%>
+    <div class="flex flex-col items-center w-screen pb-16">
+      <div class="text-secondary text-xl">
+        You must be logged in to comment
+      </div>
+      <a href="/login" class="text-primary text-xl">Login</a>
+    </div>
+    <% } %>
       
       <div class="p-10 flex flex-col w-screen justify-center items-center">
       <% blog.comments.map((comment)=>{ %>
@@ -82,40 +113,7 @@
       <% }) %>
     
     </div>
-    <% if(session.isAuth){ %>
-      <form
-      action="/blog/<%= blog._id %>"
-      method="POST"
-      class="flex flex-col items-center w-screen"
-    >
-    <input type="hidden" name="author" value="<%= session.username %>" />
-    <input type="hidden" name="isOP" value="<% if(session.username==blog.author){ %>true<% } else{ %>false<% } %>" />
-
-      <div class="flex w-1/2 items-center justify-center">
-        <textarea
-        name="content"
-        placeholder="Write your comment here"
-        required
-        id="content"
-        cols="30"
-        rows="2"
-        class="w-full p-4 rounded-xl text-2xl text-white border-2 border-primary bg-slate-900"
-      ></textarea>
-      <input
-        type="submit"
-        value="Comment"
-        class="p-2 cursor-pointer rounded-xl ml-6 border-2 text-2xl text-white border-primary bg-primary"
-      />
-      </div>
-    </form>
-    <% } else{%>
-    <div class="flex flex-col items-center w-screen pb-16">
-      <div class="text-secondary text-xl">
-        You must be logged in to comment
-      </div>
-      <a href="/login" class="text-primary text-xl">Login</a>
-    </div>
-    <% } %>
+    
     
   </body>
 </html>
