@@ -442,9 +442,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .float-right {
   float: right;
 }
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .my-5 {
   margin-top: 1.25rem;
@@ -457,10 +457,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 .mx-10 {
   margin-left: 2.5rem;
