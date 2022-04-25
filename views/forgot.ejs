@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <title>Blogs</title>
+</head>
+<body class="bg-background overflow-x-hidden scrollbar">
+    <%- include("navbar", session) %>
+    <form
+        action="/forgot"
+        method="POST"
+        class="flex flex-col items-center w-screen"
+    >
+        <label
+            for="email"
+            class="my-5 text-2xl text-primary w-full flex flex-col items-center"
+        >Email</label
+        >
+        <input
+        <input
+            type="text"
+            required
+            autofocus
+            name="email"
+            id="email"
+            class="w-1/4 p-2  text-white text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
+        />
+        <input
+            type="submit"
+            value="Send"
+            class="w-1/4 p-2 cursor-pointer rounded-xl mt-4 border-2 text-2xl text-white border-primary bg-primary"
+        />
+</body>
+</html>

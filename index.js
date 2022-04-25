@@ -4,6 +4,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const nodemailer = require("nodemailer");
 
 const blogRouter = require("./routes/blog.js");
 const loginRouter = require("./routes/login.js");
@@ -29,10 +30,17 @@ mongoose
     console.log("MongoDB connected.");
   });
 
-//kam se stora session VVVV
 const store = new MongoDBSession({
   uri: mongoURI,
   collection: "sessions",
+});
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASSWORD,
+  },
 });
 
 app.use(express.static("./views"));
@@ -72,6 +80,25 @@ app.get("/about", (req, res) => {
   res.render(path.join(__dirname, "views", "about.ejs"), {
     session: req.session,
   });
+});
+
+app.get("/forgot", (req, res) => {
+  res.render(path.join(__dirname, "views", "forgot.ejs"), {
+    session: req.session,
+  });
+});
+
+app.post("/forgot", async (req, res) => {
+  const { email } = req.body;
+  const pin = Math.floor(Math.random() * 10000);
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: email,
+    subject: "Reset password",
+    text: "Your reset code is " + pin,
+  };
+  transporter.sendMail(mailOptions);
+  res.redirect("");
 });
 
 app.get("/deleteUsers", (req, res) => {

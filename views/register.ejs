@@ -23,10 +23,12 @@
       >
       <input
         type="text"
-        
+        autofocus
+        minlength="3"
+        required
         name="username"
         id="username"
-        class="w-1/4 p-2 text-secondary text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
+        class="w-1/4 p-2 text-secondary text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700"
       />
       <label
         for="email"
@@ -35,23 +37,26 @@
       >
       <input
         type="text"
-        
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        required
         name="email"
         id="email"
-        class="w-1/4 p-2 text-secondary text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
+        class="w-1/4 p-2 text-secondary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
       />
       <label
         for="password"
-        
         class="text-2xl text-secondary mb-4 w-full flex flex-col items-center"
       >
         Password</label
       >
       <input
-      type="password"
+        type="password"
         name="password"
         id="password"
-        class="w-1/4 p-2 rounded-xl text-2xl text-secondary border-2 border-primary bg-slate-900"
+        required
+        minlength="6"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        class="w-1/4 p-2 rounded-xl text-2xl outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-secondary border-2 border-primary bg-slate-900"
       ></input>
       <input
         type="submit"

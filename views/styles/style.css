@@ -538,11 +538,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: -moz-max-content;
   width: max-content;
 }
-.w-2\/3 {
-  width: 66.666667%;
-}
 .w-1\/4 {
   width: 25%;
+}
+.w-2\/3 {
+  width: 66.666667%;
 }
 .translate-y-1 {
   --tw-translate-y: 0.25rem;
@@ -670,6 +670,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-left {
   text-align: left;
 }
+.text-center {
+  text-align: center;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -739,4 +742,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.focus\:outline:focus {
+  outline-style: solid;
+}
+.focus\:outline-2:focus {
+  outline-width: 2px;
+}
+.focus\:outline-offset-2:focus {
+  outline-offset: 2px;
+}
+.focus\:outline-rose-700:focus {
+  outline-color: #be123c;
 }
