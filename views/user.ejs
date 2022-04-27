@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/scrollbar.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
+    <script
+      src="https://kit.fontawesome.com/3200730e91.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Blog</title>
+    <style>
+      .fa-circle-plus {
+        color: #e12353;
+      }
+    </style>
+  </head>
+  <body class="bg-background overflow-x-hidden">
+    <%- include("navbar", session) %>
+    <div class="w-full flex justify-center items-center mt-12">
+      <div class="w-1/2 flex flex-col p-4 rounded-xl justify-center">
+        <div
+          class="mb-8 w-full flex justify-center text-4xl text-primary p-4 border-2 border-primary rounded-xl"
+        >
+          <%= user.username %>
+        </div>
+        <div>
+          <% blogs.map((blog)=>{ %>
+          <div class="border-2 border-secondary p-4 rounded-xl mt-8">
+            <div class="text-xl text-slate-600">
+              <% date = new Date(blog.date) %>Posted on <%= date.getDate()
+              %>/<%= date.getMonth()+1 %>/<%= date.getFullYear() %> at <%=
+              date.getUTCHours()-(date.getTimezoneOffset()/60) %>:<%
+              if(date.getMinutes()<10){ %>0<%= date.getMinutes() %><% } else {
+              %><%= date.getMinutes() %><% } %>
+            </div>
+            <a class="flex flex-col" href="/blog/<%= blog._id %>">
+              <div class="text-2xl text-primary p-2"><%= blog.title %></div>
+              <div class="text-xl text-secondary p-2 mt-2">
+                <%= blog.content.substring(0,100) %> <%
+                if((blog.content).length>100){ %>...<%}%>
+              </div>
+            </a>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

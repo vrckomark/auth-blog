@@ -26,13 +26,13 @@
           type="text"
           required
           autofocus
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           name="email"
           id="email"
           class="w-1/4 p-2  text-white text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700"
         />
         <label
           for="password"
-          
           class="text-2xl text-primary mb-4 w-full flex flex-col items-center"
         >
           Password</label
@@ -40,6 +40,7 @@
         <input
         type="password"
           name="password"
+          required
           id="password"
           class="w-1/4 p-2 rounded-xl text-2xl text-white border-2 border-primary bg-slate-900 outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700"
         ></input>

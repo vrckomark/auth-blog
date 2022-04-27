@@ -22,7 +22,7 @@ router
 
     req.session.isAuth = true;
     req.session.username = user.username;
-    req.session.userId = user._id;
+    req.session.userid = user._id;
     req.session.email = user.email;
     res.redirect("/");
   });

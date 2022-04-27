@@ -29,7 +29,10 @@
   <div class="flex justify-end items-center pr-5">
     <% if(session.isAuth){ %>
     <div class="text-secondary text-3xl mr-6">
-      Hello <%= session.username %>
+      Hello
+      <a href="/user/<%= session.userid %>" class="text-primary p-2"
+        ><%= session.username %></a
+      >
     </div>
     <form action="/logout" method="POST" class="mr-8">
       <button type="submit">

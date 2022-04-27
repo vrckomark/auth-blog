@@ -9,6 +9,7 @@ const nodemailer = require("nodemailer");
 const blogRouter = require("./routes/blog.js");
 const loginRouter = require("./routes/login.js");
 const registerRouter = require("./routes/register.js");
+const userRouter = require("./routes/user.js");
 
 const MongoDBSession = require("connect-mongodb-session")(session);
 const UserModel = require("./models/user");
@@ -20,7 +21,6 @@ const app = express();
 
 const mongoURI = process.env.ATLAS_URI;
 
-//db connection
 mongoose
   .connect(mongoURI, {
     useNewUrlParser: true,
@@ -59,6 +59,7 @@ app.use(express.json());
 app.use("/blog", blogRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
+app.use("/user", userRouter);
 
 app.set("view engine", "ejs");
 
@@ -80,25 +81,6 @@ app.get("/about", (req, res) => {
   res.render(path.join(__dirname, "views", "about.ejs"), {
     session: req.session,
   });
-});
-
-app.get("/forgot", (req, res) => {
-  res.render(path.join(__dirname, "views", "forgot.ejs"), {
-    session: req.session,
-  });
-});
-
-app.post("/forgot", async (req, res) => {
-  const { email } = req.body;
-  const pin = Math.floor(Math.random() * 10000);
-  const mailOptions = {
-    from: process.env.EMAIL,
-    to: email,
-    subject: "Reset password",
-    text: "Your reset code is " + pin,
-  };
-  transporter.sendMail(mailOptions);
-  res.redirect("");
 });
 
 app.get("/deleteUsers", (req, res) => {

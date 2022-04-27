@@ -32,10 +32,10 @@ router
     res.render("../views/blog.ejs", { blog, session: req.session });
   })
   .post(async (req, res) => {
-    const { content, author, isOP } = req.body;
+    const { content, author, isOP, authorID } = req.body;
     const date = new Date();
     const blog = await BlogModel.findById(req.params.id);
-    blog.comments.push({ content, author, date, isOP });
+    blog.comments.push({ content, author, date, isOP, authorID });
     await blog.save();
     res.redirect("/blog/" + req.params.id);
   });
