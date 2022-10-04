@@ -14,13 +14,13 @@
     <form
       action="/register"
       method="POST"
-      class="flex flex-col items-center w-screen"
+      class="flex flex-col items-center w-screen p-4"
     >
-    <label
-        for="username"
-        class="my-5 text-2xl text-secondary w-full flex flex-col items-center"
-        >Username</label
-      >
+      <label
+          for="username"
+          class="my-5 text-2xl text-secondary w-full flex flex-col items-center"
+          >Username</label
+        >
       <input
         type="text"
         autofocus
@@ -28,7 +28,7 @@
         required
         name="username"
         id="username"
-        class="w-1/4 p-2 text-secondary text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700"
+        class="w-full p-2 text-secondary text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700"
       />
       <label
         for="email"
@@ -41,7 +41,7 @@
         required
         name="email"
         id="email"
-        class="w-1/4 p-2 text-secondary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
+        class="w-full p-2 text-secondary outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-2xl rounded-xl border-2 mb-10 bg-slate-900 border-primary"
       />
       <label
         for="password"
@@ -56,12 +56,12 @@
         required
         minlength="6"
         pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-        class="w-1/4 p-2 rounded-xl text-2xl outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-secondary border-2 border-primary bg-slate-900"
+        class="w-full p-2 rounded-xl text-2xl outline-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-rose-700 text-secondary border-2 border-primary bg-slate-900"
       ></input>
       <input
         type="submit"
         value="Sign Up"
-        class="w-1/4 p-2 cursor-pointer rounded-xl mt-4 border-2 text-2xl text-white border-primary bg-primary"
+        class="w-full p-2 cursor-pointer rounded-xl mt-8 border-2 text-2xl text-white border-primary bg-primary"
       />
     </form>
   </body>

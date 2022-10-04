@@ -19,9 +19,11 @@
   </head>
   <body class="bg-background">
     <%- include("navbar", session ) %>
-    <div class="w-screen mt-12 flex flex-col items-center content-center">
+    <div
+      class="w-screen mt-16 px-4 flex flex-col items-center justify-center lg:"
+    >
       <div
-        class="text-gray-300 rounded-xl p-6 border-2 border-secondary w-1/2 text-left text-2xl"
+        class="text-gray-300 rounded-xl p-6 border-2 border-secondary w-full text-left text-2xl lg:w-2/3"
       >
         This website was created by
         <a
@@ -32,7 +34,9 @@
         >
         in ExpressJS with EJS and a MongoDB database.
       </div>
-      <div class="text-gray-300 rounded-xl mt-8 w-1/2 text-left text-2xl">
+      <div
+        class="text-gray-300 rounded-xl mt-8 w-1/2 justify-center flex text-2xl"
+      >
         <a
           target="_blank"
           class="flex items-center"

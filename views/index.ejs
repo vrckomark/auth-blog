@@ -11,11 +11,7 @@
       src="https://kit.fontawesome.com/3200730e91.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      .fa-circle-plus {
-        color: #e12353;
-      }
-    </style>
+
     <title>Blogs</title>
     <link rel="icon" href="./assets/icon.png" />
 
@@ -25,8 +21,8 @@
     <% if(session.isAuth){ %>
     <a
       href="/blog/create"
-      class="text-3xl bottom-10 right-10 fixed text-primary"
-      ><i class="fa-solid fa-3x fa-circle-plus"></i
+      class="text-3xl bottom-28 right-10 fixed text-primary bg-background rounded-full lg:text-4xl lg:bottom-16 lg:right-16"
+      ><i class="fa-solid fa-2x fa-circle-plus"></i
     ></a>
     <% } else {%>
     <a
@@ -36,10 +32,12 @@
       Sign up to create a blog
     </a>
     <% } %> <%- include("navbar", { session }) %>
-    <div class="p-10 flex flex-col w-screen justify-center items-center">
+    <div
+      class="pt-8 flex flex-col w-screen justify-center items-center lg:px-24"
+    >
       <% blogs.map((blog)=>{ %>
       <div
-        class="mb-8 w-1/2 flex flex-col border-2 border-secondary rounded-2xl p-5"
+        class="mb-8 w-full flex flex-col border-2 border-secondary rounded-2xl p-5"
       >
         <div class="flex flex-col">
           <div class="flex w-full justify-between">

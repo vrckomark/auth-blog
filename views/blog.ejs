@@ -20,15 +20,16 @@
   </head>
   <body class="bg-background overflow-x-hidden">
     <%- include("navbar", session) %>
-    <div class="w-screen mt-12 flex flex-col items-center content-center">
+    <div class="w-screen mt-12 flex flex-col items-center content-center mb-12 lg:px-16">
       <div
-        class="text-primary justify-center w-1/2 py-4 rounded-xl mb-10 flex text-4xl"
+        class="text-primary justify-center py-4 rounded-xl mb-10 flex text-4xl"
       >
         <%= blog.title %>
       </div>
       <div
-        class="text-gray-500 rounded-xl p-2 justify-between flex w-1/2 text-left text-xl"
+        class="text-gray-500 rounded-xl w-full pl-6 mb-1 justify-start items-start flex flex-col text-left text-xl"
       >
+        <div class="text-primary text-2xl mb-4"><%= blog.author %></div>
         <div>
           <% date = new Date(blog.date) %>Posted on <%= date.getDate() %>/<%=
           date.getMonth()+1 %>/<%= date.getFullYear() %> at <%=
@@ -36,10 +37,10 @@
           if(date.getMinutes()<10){ %>0<%= date.getMinutes() %><% } else { %><%=
           date.getMinutes() %><% } %>
         </div>
-        <div class="text-primary text-2xl"><%= blog.author %></div>
+        
       </div>
       <div
-        class="text-secondary rounded-xl px-10 py-6 border-2 border-primary flex w-1/2 text-left text-2xl break-words leading-relaxed"
+        class="text-secondary rounded-xl mx-4 px-8 py-6 border-2 border-primary flex text-left text-2xl break-words leading-relaxed"
       >
         <%= blog.content %>
       </div>
@@ -47,13 +48,13 @@
       <form
       action="/blog/<%= blog._id %>"
       method="POST"
-      class="flex flex-col items-center w-screen my-8"
-    >
-    <input type="hidden" name="author" value="<%= session.username %>" />
-    <input type="hidden" name="authorID" value="<%= session.userid %>" />
-    <input type="hidden" name="isOP" value="<% if(session.username==blog.author){ %>true<% } else{ %>false<% } %>" />
+      class="flex items-center justify-center w-screen my-8  lg:px-16"
+      >
+      <input type="hidden" name="author" value="<%= session.username %>" />
+      <input type="hidden" name="authorID" value="<%= session.userid %>" />
+      <input type="hidden" name="isOP" value="<% if(session.username==blog.author){ %>true<% } else{ %>false<% } %>" />
 
-      <div class="flex w-1/2 items-center justify-center">
+      <div class="flex items-center justify-center w-full px-8">
         <input
         name="content"
         placeholder="Write your comment here"
@@ -77,9 +78,9 @@
     </div>
     <% } %>
       
-      <div class="p-10 pb-16 flex flex-col w-screen justify-center items-center">
+      <div class=" px-6 pb-16 flex flex-col w-screen justify-center items-center lg:px-16">
       <% blog.comments.map((comment)=>{ %>
-        <div class="mb-8 w-1/2 flex flex-col border-2 border-secondary rounded-2xl p-5">
+        <div class="mb-4 flex flex-col border-2 w-full border-secondary rounded-2xl p-5">
         <div class="flex flex-col">
           <div class="flex w-full justify-between">
             <div class="flex items-center justify-center">
@@ -112,9 +113,6 @@
       </div>
     </div>
       <% }) %>
-    
     </div>
-    
-    
   </body>
 </html>

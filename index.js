@@ -121,7 +121,9 @@ app.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) throw err;
   });
-  res.redirect("/");
+  setTimeout(() => {
+    res.redirect("/");
+  }, 10);
 });
 
 app.listen(5000, () => {

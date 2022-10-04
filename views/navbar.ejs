@@ -3,6 +3,7 @@
     src="https://kit.fontawesome.com/3200730e91.js"
     crossorigin="anonymous"
   ></script>
+  <script lang="js"></script>
   <style>
     .fa-arrow-right-from-bracket {
       color: #f24a4a;
@@ -10,41 +11,51 @@
   </style>
 </head>
 <nav
-  class="w-screen h-max flex flex-row justify-between my-8 border-b-2 border-slate-500 pb-6 rounded-2xl"
+  class="fixed bg-background w-screen bottom-0 border-t-4 flex justify-evenly py-6 border-slate-700 rounded-2xl lg:top-0 lg:relative lg:border-t-0 lg:border-b-4 lg:rounded-none lg:py-8 text-secondary lg:justify-between"
 >
-  <div class="flex items-start justify-start content-center ml-12">
-    <div class="flex">
-      <a href="/" class="text-3xl text-secondary">Home</a>
-    </div>
-    <div class="flex">
-      <a href="/about" class="text-3xl text-secondary ml-5">About</a>
-    </div>
-    <% if(session.username==="admin"){ %>
-    <div class="flex">
-      <a href="/dashboard" class="text-3xl text-secondary ml-5">Dashboard</a>
-    </div>
-    <% } %>
+  <!--Phone+ navbar-->
+
+  <div class="flex lg:hidden">
+    <a href="/" class="text-3xl"><i class="fa-solid fa-house text-md"></i></a>
+  </div>
+  <a href="/about" class="text-3xl lg:hidden"
+    ><i class="fa-solid fa-circle-info text-md"></i
+  ></a>
+  <% if(session.username==="admin"){ %>
+  <a href="/dashboard" class="text-md">Dashboard</a>
+  <% } %> <% if(session.isAuth){ %>
+
+  <div class="flex lg:hidden">
+    <a href="/user/<%= session.userid %>" class="text-3xl"
+      ><i class="fa-solid fa-user"></i
+    ></a>
   </div>
 
-  <div class="flex justify-end items-center pr-5">
-    <% if(session.isAuth){ %>
-    <div class="text-secondary text-3xl mr-6">
-      Hello
-      <a href="/user/<%= session.userid %>" class="text-primary p-2"
-        ><%= session.username %></a
-      >
-    </div>
-    <form action="/logout" method="POST" class="mr-8">
+  <!--Desktop navbar-->
+  <div class="text-3xl ml-16 hidden lg:flex">
+    <a href="/">Home</a>
+    <a href="/about" class="ml-8">About</a>
+  </div>
+
+  <div class="text-3xl mr-16 lg:flex">
+    <a href="/user/<%= session.userid%>" class="mr-8 hidden lg:flex"
+      >Hello, <%= session.username%></a
+    >
+    <form action="/logout" method="POST">
       <button type="submit">
-        <i class="fa-solid fa-2x fa-arrow-right-from-bracket translate-y-1"></i>
+        <i
+          class="fa-solid fa-arrow-right-from-bracket translate-y-1 text-4xl"
+        ></i>
       </button>
     </form>
-
-    <% } else{%>
-    <a href="/login" class="text-3xl float-right text-secondary">Login</a>
-    <a href="/register" class="text-3xl float-right text-secondary mx-10"
-      >Register</a
-    >
-    <% } %>
   </div>
+
+  <% } else{%>
+  <a href="/login" class="text-3xl lg:hidden"
+    ><i class="fa-solid fa-right-to-bracket"></i
+  ></a>
+  <div class="hidden lg:flex"></div>
+  <a href="/login" class="text-2xl hidden lg:flex mr-16">Sign In</a>
+
+  <% } %>
 </nav>
