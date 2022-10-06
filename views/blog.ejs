@@ -20,7 +20,7 @@
   </head>
   <body class="bg-background overflow-x-hidden">
     <%- include("navbar", session) %>
-    <div class="w-screen mt-12 flex flex-col items-center content-center mb-12 lg:px-16">
+    <div class="w-screen mt-12 flex flex-col items-center content-center mb-12 lg:px-52">
       <div
         class="text-primary justify-center py-4 rounded-xl mb-10 flex text-4xl"
       >
@@ -48,7 +48,7 @@
       <form
       action="/blog/<%= blog._id %>"
       method="POST"
-      class="flex items-center justify-center w-screen my-8  lg:px-16"
+      class="flex items-center justify-center w-screen my-8 lg:px-52"
       >
       <input type="hidden" name="author" value="<%= session.username %>" />
       <input type="hidden" name="authorID" value="<%= session.userid %>" />
@@ -78,7 +78,7 @@
     </div>
     <% } %>
       
-      <div class=" px-6 pb-16 flex flex-col w-screen justify-center items-center lg:px-16">
+      <div class=" px-6 pb-16 flex flex-col w-screen justify-center items-center lg:px-52">
       <% blog.comments.map((comment)=>{ %>
         <div class="mb-4 flex flex-col border-2 w-full border-secondary rounded-2xl p-5">
         <div class="flex flex-col">

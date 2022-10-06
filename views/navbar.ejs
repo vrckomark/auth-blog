@@ -21,9 +21,7 @@
   <a href="/about" class="text-3xl lg:hidden"
     ><i class="fa-solid fa-circle-info text-md"></i
   ></a>
-  <% if(session.username==="admin"){ %>
-  <a href="/dashboard" class="text-md">Dashboard</a>
-  <% } %> <% if(session.isAuth){ %>
+  <% if(session.isAuth){ %>
 
   <div class="flex lg:hidden">
     <a href="/user/<%= session.userid %>" class="text-3xl"
@@ -35,6 +33,9 @@
   <div class="text-3xl ml-16 hidden lg:flex">
     <a href="/">Home</a>
     <a href="/about" class="ml-8">About</a>
+    <% if(session.username==="admin"){ %>
+    <a href="/dashboard" class="text-md ml-8">Dashboard</a>
+    <% } %>
   </div>
 
   <div class="text-3xl mr-16 lg:flex">
@@ -51,11 +52,17 @@
   </div>
 
   <% } else{%>
-  <a href="/login" class="text-3xl lg:hidden"
-    ><i class="fa-solid fa-right-to-bracket"></i
-  ></a>
-  <div class="hidden lg:flex"></div>
-  <a href="/login" class="text-2xl hidden lg:flex mr-16">Sign In</a>
+  <div class="text-2xl ml-16 hidden lg:flex">
+    <a href="/">Home</a>
+    <a href="/about" class="ml-8">About</a>
+  </div>
+
+  <div>
+    <a href="/login" class="text-3xl lg:hidden"
+      ><i class="fa-solid fa-right-to-bracket"></i
+    ></a>
+    <a href="/login" class="text-2xl hidden lg:flex mr-16">Sign In</a>
+  </div>
 
   <% } %>
 </nav>
